@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AI Security Solutions</title>
+    <meta name="description" content="Learn about AI Security Solutions, our mission, values, and expert team of security professionals.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* Additional styles specific to about page */
+        .mission-vision {
+            padding: 80px 0;
+        }
+        
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .mission-card, .vision-card {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: var(--white);
+            transition: transform 0.3s ease;
+        }
+        
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+            background-color: var(--light-bg-color);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .member-name {
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .member-title {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .member-bio {
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        .timeline-section {
+            padding: 80px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--light-gray);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-container.left {
+            left: 0;
+        }
+        
+        .timeline-container.right {
+            left: 50%;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--white);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-container.left::after {
+            right: -17px;
+        }
+        
+        .timeline-container.right::after {
+            left: -17px;
+        }
+        
+        .timeline-container.right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--light-gray);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--white) transparent transparent;
+        }
+        
+        .timeline-container.left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--light-gray);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--white);
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--white);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: -35px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .timeline-container.left .timeline-year {
+            right: 30px;
+        }
+        
+        .timeline-container.right .timeline-year {
+            left: 30px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .mission-vision-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-container.right {
+                left: 0%;
+            }
+            
+            .timeline-container.left::after, .timeline-container.right::after {
+                left: 15px;
+            }
+            
+            .timeline-container.left::before, .timeline-container.right::before {
+                left: 60px;
+                border: medium solid var(--white);
+                border-width: 10px 10px 10px 0;
+                border-color: transparent var(--white) transparent transparent;
+            }
+            
+            .timeline-container.left .timeline-year, .timeline-container.right .timeline-year {
+                left: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">AI Security Solutions</a>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+                    <li><a href="about.html" class="nav-link active">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="animate-on-scroll">About Us</h1>
+            <p class="animate-on-scroll">Learn about our mission, values, and the team behind AI Security Solutions</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h2>Who We Are</h2>
+                    <p>AI Security Solutions is a leading provider of advanced security services, combining cutting-edge artificial intelligence with robust open-source security tools.</p>
+                    <p>Founded in 2015 by a team of cybersecurity experts, we have grown to become a trusted partner for organizations seeking to protect their digital assets from evolving cyber threats.</p>
+                    <p>Our team consists of experienced security professionals with backgrounds in artificial intelligence, network security, system optimization, and compliance.</p>
+                </div>
+                
+                <div class="about-image animate-on-scroll">
+                    <img src="https://via.placeholder.com/600x400" alt="AI Security Solutions Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+                <p>What drives us forward and shapes our future</p>
+            </div>
+            
+            <div class="mission-vision-grid">
+                <div class="mission-card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To protect organizations from evolving cyber threats by combining artificial intelligence with open-source security tools, making advanced security accessible to all.</p>
+                    <p>We are committed to delivering innovative security solutions that address the unique challenges faced by our clients while maintaining the highest standards of service and expertise.</p>
+                </div>
+                
+                <div class="vision-card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the global leader in AI-powered security solutions, setting the standard for innovation, reliability, and effectiveness in the cybersecurity industry.</p>
+                    <p>We envision a future where organizations of all sizes can confidently operate in the digital world, protected by intelligent security solutions that evolve with emerging threats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We continuously explore and implement cutting-edge AI and security technologies to stay ahead of emerging threats.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Our commitment to excellence drives us to deliver the highest quality security solutions and services.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We maintain the highest standards of integrity and transparency in all our client relationships.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We work closely with our clients to understand their unique needs and develop tailored security solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p>The experts behind AI Security Solutions</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member animate-on-scroll">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/400x400" alt="Ali Farmani">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Ali Farmani</h3>
+                        <div class="member-title">Founder & CEO</div>
+                        <p class="member-bio">With over 15 years of experience in cybersecurity, Ali leads our team with a vision for AI-powered security solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/400x400" alt="Sarah Johnson">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Sarah Johnson</h3>
+                        <div class="member-title">CTO</div>
+                        <p class="member-bio">A pioneer in AI security research, Sarah oversees all technical aspects of our security solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/400x400" alt="Michael Chen">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Michael Chen</h3>
+                        <div class="member-title">Network Security Lead</div>
+                        <p class="member-bio">Expert in open-source security tools, Michael leads our network security implementations.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member animate-on-scroll">
+                    <div class="member-image">
+                        <img src="https://via.placeholder.com/400x400" alt="Emily Rodriguez">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Emily Rodriguez</h3>
+                        <div class="member-title">AI Research Director</div>
+                        <p class="member-bio">Emily leads our AI research team, developing next-generation security algorithms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Timeline -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Journey</h2>
+                <p>Key milestones in the evolution of AI Security Solutions</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-container left animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <h3>Foundation</h3>
+                        <p>AI Security Solutions was founded by Ali Farmani with a mission to revolutionize cybersecurity using artificial intelligence.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-container right animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <h3>First AI Security Product</h3>
+                        <p>Launched our first AI-powered threat detection system, marking a significant milestone in our journey.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-container left animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <h3>Open-Source Security Integration</h3>
+                        <p>Expanded our services to include open-source security tools, making advanced security more accessible.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-container right animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3>Global Expansion</h3>
+                        <p>Opened offices in Europe and Asia, expanding our global reach and client base.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-container left animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Industry Recognition</h3>
+                        <p>Received multiple industry awards for our innovative AI security solutions and client success stories.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-container right animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>AI Security Research Center</h3>
+                        <p>Established a dedicated AI security research center to develop next-generation security technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Team</h2>
+                <p>We're always looking for talented individuals to join our mission of making the digital world more secure.</p>
+            </div>
+            
+            <div class="text-center animate-on-scroll">
+                <a href="contact.html" class="btn">View Careers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>AI Security Solutions</h3>
+                    <p>Protecting your digital assets with next-generation security solutions.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#threat-detection">Threat Detection</a></li>
+                        <li><a href="services.html#network-security">Network Security</a></li>
+                        <li><a href="services.html#system-optimization">System Optimization</a></li>
+                        <li><a href="services.html#consultancy">Security Consultancy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@aisecuritysolutions.com">contact@aisecuritysolutions.com</a></li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Security Street, Tech City, TC 12345</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Security Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
