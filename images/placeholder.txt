@@ -1,0 +1,1 @@
+This folder will contain website images. Replace this file with actual images.
