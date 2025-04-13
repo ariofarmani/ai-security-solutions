@@ -1,71 +1,80 @@
 # AI Security Solutions Website
 
-A modern, responsive website for an IT security company specializing in AI-based solutions, system optimization, and network security.
+A professional, multi-page website for an IT security company specializing in AI-based solutions, system optimization, and network security with open-source tools.
 
-## Features
+## Website Overview
 
-- 🛡️ Comprehensive IT security services showcase
-- 🤖 AI-powered security solutions
-- 🌐 Network security and optimization
-- 🔒 Open-source security tools integration
-- 📱 Fully responsive design
-- ⚡ Modern UI with smooth animations
+This is a static HTML website designed to showcase AI Security Solutions, a fictional IT security company offering advanced security services using artificial intelligence and open-source technologies.
 
-## Tech Stack
+### Pages
 
-- React.js
-- Tailwind CSS
-- Framer Motion
-- React Router
-- Headless UI
+- **Home:** Company introduction and services overview
+- **Services:** Detailed information about our security services
+- **Solutions:** Industry-specific security solutions and case studies
+- **About Us:** Company history, mission, values, and team
+- **Contact:** Contact information and form
 
-## Getting Started
+## Design Features
+
+- 🎨 Modern, clean, professional design inspired by Advania.com
+- 📱 Fully responsive layout for all devices
+- 🎭 Subtle animations to enhance user experience
+- 🎯 Clear call-to-actions throughout the site
+- 🔍 SEO-friendly structure and semantic HTML
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+- Font Awesome icons
+- Google Fonts
+
+## How to View the Website
+
+### Option 1: GitHub Pages (Recommended)
+
+The website is hosted on GitHub Pages, making it easy to view without setting up anything locally:
+
+1. Visit [https://ariofarmani.github.io/ai-security-solutions/](https://ariofarmani.github.io/ai-security-solutions/)
+
+*Note: If GitHub Pages is not yet enabled, you can do so from the repository settings.*
+
+### Option 2: Local Setup
+
+To view the website locally:
 
 1. Clone the repository:
-\`\`\`bash
+```bash
 git clone https://github.com/ariofarmani/ai-security-solutions.git
+```
+
+2. Open any of the HTML files in your web browser:
+```bash
 cd ai-security-solutions
-\`\`\`
+# Then open index.html in your browser
+```
 
-2. Install dependencies:
-\`\`\`bash
-npm install
-\`\`\`
+## Customization
 
-3. Start the development server:
-\`\`\`bash
-npm start
-\`\`\`
+This website template is easy to customize for your own use:
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Replace placeholder images with your own
+- Update content in the HTML files
+- Modify colors and styling in the CSS files
+- Add additional pages as needed
 
-## Build for Production
+## Browser Compatibility
 
-To build the app for production:
-
-\`\`\`bash
-npm run build
-\`\`\`
-
-This will create an optimized production build in the \`build\` folder.
-
-## Project Structure
-
-- \`src/components/\`: Reusable UI components
-- \`src/pages/\`: Main page components
-- \`src/assets/\`: Static assets (images, icons, etc.)
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (\`git checkout -b feature/amazing-feature\`)
-3. Commit your changes (\`git commit -m 'Add some amazing feature'\`)
-4. Push to the branch (\`git push origin feature/amazing-feature\`)
-5. Open a Pull Request
+The website is compatible with all modern browsers:
+- Chrome
+- Firefox
+- Safari
+- Edge
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is available under the MIT License.
 
 ## Contact
 
